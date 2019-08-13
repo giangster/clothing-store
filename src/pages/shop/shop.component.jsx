@@ -13,11 +13,7 @@ class ShopPage extends Component {
       <div>
         <h1>SHOP PAGE</h1>
         {collections.map(({ id, ...otherProps }) => {
-          return (
-            <div key={id}>
-              <CollectionPreview {...otherProps} />
-            </div>
-          );
+          return <CollectionPreview key={id} {...otherProps} />;
         })}
       </div>
     );
