@@ -25,24 +25,22 @@ class SignIn extends Component {
         <p>Sign in with your email and password</p>
 
         <form onSubmit={this.onSubmit}>
-          Email: <br />
           <FormInput
             required
             type="email"
             name="email"
+            label="email"
             value={this.state.email}
             onChange={this.onChange}
           />
-          <br />
-          Password: <br />
-          <input
+          <FormInput
             required
             type="password"
             name="password"
+            label="password"
             value={this.state.password}
             onChange={this.onChange}
           />
-          <br />
           <input type="submit" value="Log in" />
         </form>
       </div>
