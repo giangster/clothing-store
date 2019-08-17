@@ -20,7 +20,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div>
+      <div className="sign-in">
         <h2>I already have an account</h2>
         <p>Sign in with your email and password</p>
 
