@@ -4,7 +4,7 @@ import "./App.css";
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import ShopPage from "./pages/shop/shop.component.jsx";
 import Header from "./components/header/header.component.jsx";
-import SignInSignUpPage from "./pages/signin-signup/signin-signup.component";
+import SignInAndSignUpPage from "./pages/signin-signup/signin-signup.component";
 import { auth } from "./firebase/firebase.utils.js";
 
 class App extends Component {
@@ -13,9 +13,16 @@ class App extends Component {
     this.state = { currentUser: null };
   }
 
-  unsubscribe;
+  unsubscribeFromAuth = null;
+
   componentDidMount() {
-    auth.onAuthStateChanged(user => this.setState({ currentUser: user }));
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user =>
+      this.setState({ currentUser: user })
+    );
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
   }
 
   render() {
@@ -25,7 +32,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/signin" component={SignInSignUpPage} />
+          <Route path="/signin" component={SignInAndSignUpPage} />
         </Switch>
       </div>
     );

@@ -24,7 +24,7 @@ class SignIn extends Component {
     return (
       <div className="sign-in">
         <h2>I already have an account</h2>
-        <p>Log in with your email and password.</p>
+        <p>Sign in with your email and password.</p>
 
         <form onSubmit={this.onSubmit}>
           <FormInput
@@ -43,9 +43,9 @@ class SignIn extends Component {
             value={this.state.password}
             onChange={this.onChange}
           />
-          <CustomButton type="submit">Log in</CustomButton>
+          <CustomButton type="submit">Sign in</CustomButton>
           <CustomButton onClick={signInWithGoogle}>
-            Log in with Google
+            Sign in with Google
           </CustomButton>
         </form>
       </div>
