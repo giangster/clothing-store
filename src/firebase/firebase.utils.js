@@ -12,6 +12,18 @@ var firebaseConfig = {
   appId: "1:937460022374:web:409509828b188bb4"
 };
 
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) {
+    return;
+  }
+
+  const userRef = firestore.doc("users/meo");
+
+  const snapShot = await userRef.get();
+
+  console.log(snapShot);
+};
+
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
