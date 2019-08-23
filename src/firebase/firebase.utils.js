@@ -30,6 +30,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     } catch (error) {
       console.log("error creating user", error.message);
     }
+
+    return userRef;
   }
 };
 
