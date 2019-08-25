@@ -25,7 +25,31 @@ class SignUp extends Component {
     });
   };
 
-  onSubmit = () => {};
+  onSubmit = async e => {
+    e.preventDefault();
+
+    const { displayName, email, password, confirmPassword } = this.state;
+
+    if (password === confirmPassword) {
+      try {
+        const user = await auth.createUserWithEmailAndPassword(email, password);
+
+        await createUserProfileDocument(user, displayName);
+
+        this.setState({
+          displayName: "",
+          email: "",
+          password: "",
+          confirmPassword: ""
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      alert("Password doesn't match");
+      return;
+    }
+  };
 
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
