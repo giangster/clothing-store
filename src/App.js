@@ -21,20 +21,12 @@ class App extends Component {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          this.setState(
-            {
-              currentUser: {
-                id: snapShot.id,
-                ...snapShot.data()
-              }
-            },
-
-            //Console log can not be after setState, because setState is async => setState must be called then console log
-
-            () => {
-              console.log(this.state);
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
             }
-          );
+          });
         });
       }
       this.setState({ currentUser: userAuth });

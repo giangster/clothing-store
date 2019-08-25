@@ -24,7 +24,7 @@ export const createUserProfileDocument = async userAuth => {
     const createdOn = new Date();
 
     try {
-      await userRef.get(displayName, email, createdOn);
+      await userRef.get({ displayName, email, createdOn });
     } catch (error) {
       console.log("error creating user", error.message);
     }
