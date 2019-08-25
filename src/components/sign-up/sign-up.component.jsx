@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import "./sign-up.styles.scss";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
+import {
+  auth,
+  createUserProfileDocument
+} from "../../firebase/firebase.utils.js";
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      displayName: "",
       email: "",
       password: "",
       confirmPassword: ""
@@ -21,19 +25,22 @@ class SignUp extends Component {
     });
   };
 
+  onSubmit = () => {};
+
   render() {
+    const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="sign-up">
-        <h2>I don't have an account</h2>
+        <h2 className="title">I don't have an account</h2>
         <p>Sign up with your email and password.</p>
 
-        <form onSubmit={this.onSubmit}>
+        <form className="sign-up-form" onSubmit={this.onSubmit}>
           <FormInput
             required
             type="text"
-            name="email"
+            name="displayName"
             label="Display Name"
-            value={this.state.email}
+            value={displayName}
             onChange={this.onChange}
           />
           <FormInput
@@ -41,7 +48,7 @@ class SignUp extends Component {
             type="email"
             name="email"
             label="Email"
-            value={this.state.email}
+            value={email}
             onChange={this.onChange}
           />
           <FormInput
@@ -49,15 +56,15 @@ class SignUp extends Component {
             type="password"
             name="password"
             label="Password"
-            value={this.state.password}
+            value={password}
             onChange={this.onChange}
           />
           <FormInput
             required
             type="password"
-            name="password"
+            name="confirmPassword"
             label="Confirm Password"
-            value={this.state.password}
+            value={confirmPassword}
             onChange={this.onChange}
           />
           <CustomButton type="submit">Sign up</CustomButton>
