@@ -12,6 +12,9 @@ var firebaseConfig = {
   appId: "1:937460022374:web:409509828b188bb4"
 };
 
+// Firebase needs to be initialized before any calling
+firebase.initializeApp(firebaseConfig);
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
@@ -25,16 +28,16 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     const createdOn = new Date();
 
     try {
-      await userRef.set(displayName, email, createdOn, ...additionalData);
+      // userRef.set has only one argument as an object
+      await userRef.set({ displayName, email, createdOn, ...additionalData });
     } catch (error) {
       console.log("error creating user", error.message);
     }
-
-    return userRef;
   }
+
+  return userRef;
 };
 
-firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
