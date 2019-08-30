@@ -21,7 +21,7 @@ class SignUp extends Component {
   onChange = e => {
     e.preventDefault();
     this.setState({
-      [e.target.name]: [e.target.value]
+      [e.target.name]: e.target.value
     });
   };
 
