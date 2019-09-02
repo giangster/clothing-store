@@ -30,24 +30,24 @@ class SignUp extends Component {
 
     const { displayName, email, password, confirmPassword } = this.state;
 
-    if (password === confirmPassword) {
-      try {
-        const user = await auth.createUserWithEmailAndPassword(email, password);
-
-        await createUserProfileDocument(user, { displayName });
-
-        this.setState({
-          displayName: "",
-          email: "",
-          password: "",
-          confirmPassword: ""
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
+    if (password !== confirmPassword) {
       alert("Password doesn't match");
       return;
+    }
+
+    try {
+      const user = await auth.createUserWithEmailAndPassword(email, password);
+
+      await createUserProfileDocument(user, { displayName });
+
+      this.setState({
+        displayName: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
