@@ -27,6 +27,7 @@ class App extends Component {
               ...snapShot.data()
             }
           });
+          //checking current user
           console.log(this.state.currentUser);
         });
       }
