@@ -14,3 +14,5 @@ const userReducer = (state = ORIGIN_STATE, action) => {
     }
   }
 };
+
+export default userReducer;
