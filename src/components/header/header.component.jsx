@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils.js";
+import Cart from "../cart-dropdown/cart-dropdown.component";
 
 const Header = ({ currentUser }) => {
   return (
@@ -28,6 +29,7 @@ const Header = ({ currentUser }) => {
           </Link>
         )}
       </div>
+      <Cart />
     </div>
   );
 };
