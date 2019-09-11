@@ -6,8 +6,9 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils.js";
 import Cart from "../cart-dropdown/cart-dropdown.component";
 import CartIcon from "../cart-icon/cart-icon.component.jsx";
+import { toggleCartStatus } from "../../redux/cart/cart-action";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -29,14 +30,22 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
-        <CartIcon />
+        <CartIcon toggleCartStatus={toggleCartStatus} />
       </div>
-      <Cart />
+      {hidden ? <div></div> : <Cart />}
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapDispatchToProps = dispatch => ({
+  toggleCartStatus: () => dispatch(toggleCartStatus())
 });
-export default connect(mapStateToProps)(Header);
+
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+  cart: state.cart.hidden
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
