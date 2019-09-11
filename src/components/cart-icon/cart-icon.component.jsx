@@ -1,15 +1,21 @@
 import React from "react";
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
+import { connect } from "react-redux";
 import "./cart-icon.styles.scss";
+import { toggleCartStatus } from "../../redux/cart/cart-action";
 
-const CartIcon = props => (
-  <div className="cart-icon">
-    <button onClick={props.toggleCartStatus}>
-      {" "}
-      <ShoppingIcon className="shopping-icon" />
-    </button>
+const CartIcon = ({ toggleCartStatus }) => (
+  <div className="cart-icon" onClick={toggleCartStatus}>
+    <ShoppingIcon className="shopping-icon" />
     <span className="item-count">0</span>
   </div>
 );
 
-export default CartIcon;
+const mapDispatchToProps = dispatch => ({
+  toggleCartStatus: () => dispatch(toggleCartStatus())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CartIcon);

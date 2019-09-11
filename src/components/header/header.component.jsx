@@ -6,7 +6,6 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils.js";
 import Cart from "../cart-dropdown/cart-dropdown.component";
 import CartIcon from "../cart-icon/cart-icon.component.jsx";
-import { toggleCartStatus } from "../../redux/cart/cart-action";
 
 const Header = ({ currentUser, hidden }) => {
   return (
@@ -30,22 +29,15 @@ const Header = ({ currentUser, hidden }) => {
             SIGN IN
           </Link>
         )}
-        <CartIcon toggleCartStatus={toggleCartStatus} />
+        <CartIcon />
       </div>
-      {hidden ? <div></div> : <Cart />}
+      {hidden ? null : <Cart />}
     </div>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  toggleCartStatus: () => dispatch(toggleCartStatus())
-});
-
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser,
-  cart: state.cart.hidden
+  hidden: state.cart.hidden
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default connect(mapStateToProps)(Header);
