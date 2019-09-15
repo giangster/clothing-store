@@ -8,8 +8,8 @@ const Cart = ({ cartItems }) => {
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
-        {cartItems.map(item => (
-          <CartItem item={item} />
+        {cartItems.map((item, index) => (
+          <CartItem key={index} item={item} />
         ))}
       </div>
       <CustomButton>CHECKOUT</CustomButton>
