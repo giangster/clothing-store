@@ -6,6 +6,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils.js";
 import Cart from "../cart-dropdown/cart-dropdown.component";
 import CartIcon from "../cart-icon/cart-icon.component.jsx";
+import { selectCurrentUser } from "../../redux/user/user-selectors";
 
 const Header = ({ currentUser, hidden }) => {
   return (
@@ -37,7 +38,7 @@ const Header = ({ currentUser, hidden }) => {
 };
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser,
+  currentUser: selectCurrentUser(state),
   hidden: state.cart.hidden
 });
 export default connect(mapStateToProps)(Header);
