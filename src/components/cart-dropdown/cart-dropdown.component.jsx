@@ -11,9 +11,11 @@ const Cart = ({ cartItems }) => {
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
-        {cartItems.map((item, index) => (
-          <CartItem key={index} item={item} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((item, index) => <CartItem key={index} item={item} />)
+        ) : (
+          <span className="empty-message">Your cart is empty</span>
+        )}
       </div>
       <CustomButton>CHECKOUT</CustomButton>
     </div>
