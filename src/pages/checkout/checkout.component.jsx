@@ -27,7 +27,13 @@ const CheckoutPage = ({ cartItems, totalCart }) => (
       </div>
     </div>
     {cartItems.length
-      ? cartItems.map((item, index) => <div>{item.name}</div>)
+      ? cartItems.map(({ name, quantity, price }, index) => (
+          <div>
+            {name}
+            {quantity}
+            {price}
+          </div>
+        ))
       : null}
     <div className="total">Total: €{totalCart}</div>
   </div>
