@@ -25,11 +25,11 @@ const CheckoutPage = ({ cartItems, totalCart }) => (
       <div className="header-block">
         <span>Remove</span>
       </div>
-      {cartItems.length
-        ? cartItems.map((item, index) => <div>{item.name}</div>)
-        : null}
-      <div className="total">Total: {totalCart}</div>
     </div>
+    {cartItems.length
+      ? cartItems.map((item, index) => <div>{item.name}</div>)
+      : null}
+    <div className="total">Total: €{totalCart}</div>
   </div>
 );
 
@@ -38,7 +38,4 @@ const mapStateToProps = createStructuredSelector({
   totalCart: selectTotalCart
 });
 
-export default connect(
-  null,
-  mapStateToProps
-)(CheckoutPage);
+export default connect(mapStateToProps)(CheckoutPage);
