@@ -8,7 +8,7 @@ const CheckoutItem = ({ quantity, name, imageUrl, price }) => {
       <span className="name">{name}</span>
       <span className="quantity">{quantity}</span>
       <span className="price">{price}</span>
-      <button className="remove-button">x</button>
+      <div className="remove-button">&#10005;</div>
     </div>
   );
 };
