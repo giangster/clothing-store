@@ -11,3 +11,9 @@ export const addItem = item => {
     payload: item
   };
 };
+export const removeItem = item => {
+  return {
+    type: CartActionTypes.REMOVE_ITEM_FROM_CART,
+    payload: item
+  };
+};
