@@ -5,13 +5,22 @@ export const toggleCartStatus = () => {
     type: CartActionTypes.TOGGLE_CART_STATUS
   };
 };
+
 export const addItem = item => {
   return {
     type: CartActionTypes.ADD_ITEM,
     payload: item
   };
 };
+
 export const removeItem = item => {
+  return {
+    type: CartActionTypes.REMOVE_ITEM,
+    payload: item
+  };
+};
+
+export const removeItemFromCart = item => {
   return {
     type: CartActionTypes.REMOVE_ITEM_FROM_CART,
     payload: item

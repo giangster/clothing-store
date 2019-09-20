@@ -1,3 +1,3 @@
-An E-commerce project based on instructions from an online course. Built with Redux, Hooks, GraphQL, ContextAPI, Stripe, Firebase.
+An E-commerce project for a clothing store. Built with Redux, Hooks, GraphQL, ContextAPI, Stripe, Firebase.
 
 Current status: ongoing.
