@@ -11,3 +11,5 @@ export const addItemToCart = (cartItems, itemToBeAdded) => {
 
   return [...cartItems, { ...itemToBeAdded, quantity: 1 }];
 };
+
+export const decreaseItem = cartItem => {};
