@@ -4,7 +4,7 @@ import CollectionOverview from "../../components/collection-overview/collection-
 const ShopPage = ({ collections }) => {
   return (
     <div>
-      <CollectionOverview />
+      <CollectionOverview collections={collections} />
     </div>
   );
 };
