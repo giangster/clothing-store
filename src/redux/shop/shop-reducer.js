@@ -1,10 +1,10 @@
 import { SHOP_DATA } from "./shop-data";
 
-const INITIAL_STATE = {
+const ORIGIN_STATE = {
   collections: SHOP_DATA
 };
 
-const shopReducer = (state = INITIAL_STATE, action) => {
+const shopReducer = (state = ORIGIN_STATE, action) => {
   switch (action.type) {
     default:
       return state;
