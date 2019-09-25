@@ -1,4 +1,4 @@
-import { SHOP_DATA } from "./shop-data";
+import SHOP_DATA from "./shop-data.js";
 
 const ORIGIN_STATE = {
   collections: SHOP_DATA
@@ -7,7 +7,7 @@ const ORIGIN_STATE = {
 const shopReducer = (state = ORIGIN_STATE, action) => {
   switch (action.type) {
     default:
-      return state;
+      return { ...state };
   }
 };
 
