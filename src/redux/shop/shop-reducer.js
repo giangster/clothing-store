@@ -7,7 +7,7 @@ const ORIGIN_STATE = {
 const shopReducer = (state = ORIGIN_STATE, action) => {
   switch (action.type) {
     default:
-      return { ...state };
+      return state;
   }
 };
 
