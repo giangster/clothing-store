@@ -25,13 +25,10 @@ const ContactPage = () => (
     <div className="contact-info">
       <h1 className="title">Contact</h1>
       <form className="contact-form">
-        <label>First Name</label>
-        <FormInput type="text" id="fname" name="firstname" />
-        <label>Last Name</label>
-        <FormInput type="text" id="lname" name="lastname" />
-        <label>Email</label>
-        <FormInput type="email" id="email" name="email" />
-
+        <FormInput type="text" name="firstname" label="First Name" />
+        <FormInput type="text" name="lastname" label="Last Name" />
+        <FormInput type="email" name="email" label="Email" />
+        <label>Message</label>
         <textarea
           id="subject"
           name="subject"
