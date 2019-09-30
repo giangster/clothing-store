@@ -36,11 +36,12 @@
     .contact-form {
       font-size: 20px;
 
-      input {
+      textarea {
+        font-family: "Open Sans Condensed";
         background: none;
         background-color: white;
         color: grey;
-        font-size: 18px;
+        font-size: 17px;
         padding: 10px 10px 10px 5px;
         display: block;
         width: 100%;
