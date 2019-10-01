@@ -67,7 +67,6 @@ class ContactPage extends Component {
               onChange={this.onChange}
             />
             <textarea
-              id="subject"
               name="message"
               placeholder="Write your message here"
               value={this.state.message}
