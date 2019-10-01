@@ -46,6 +46,7 @@ class ContactPage extends Component {
           <h1 className="title">Contact</h1>
           <form className="contact-form">
             <FormInput
+              required
               type="text"
               name="firstname"
               label="First Name"
@@ -60,6 +61,7 @@ class ContactPage extends Component {
               onChange={this.onChange}
             />
             <FormInput
+              required
               type="email"
               name="email"
               label="Email"
@@ -67,6 +69,7 @@ class ContactPage extends Component {
               onChange={this.onChange}
             />
             <textarea
+              required
               name="message"
               placeholder="Write your message here"
               value={this.state.message}
