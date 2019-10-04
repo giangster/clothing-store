@@ -12,29 +12,25 @@ const buttonStyles = css`
   }
 `;
 
-export const invertedButtonStyles = css`
-  &.inverted {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+const invertedButtonStyles = css`
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 
-    &:hover {
-      background-color: black;
-      color: white;
-      border: none;
-    }
+  &:hover {
+    background-color: black;
+    color: white;
+    border: none;
   }
 `;
 
-export const googleSignInStyles = css`
-  &.google-sign-in {
-    background-color: #4285f4;
-    color: white;
+const googleSignInStyles = css`
+  background-color: #4285f4;
+  color: white;
+  border: none;
 
-    &:hover {
-      background-color: #357ae8;
-      border: none;
-    }
+  &:hover {
+    background-color: #357ae8;
   }
 `;
 
