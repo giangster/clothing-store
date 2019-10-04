@@ -10,7 +10,7 @@ export const CheckoutItemContainer = styled.div`
   align-items: center;
 `;
 
-export const ImageContainer = styled.img`
+export const ImageContainer = styled.div`
   width: 23%;
   padding-right: 15px;
 
@@ -35,7 +35,7 @@ export const QuantityContainer = styled.span`
   }
 `;
 
-export const RemoveButtonContainer = styled.button`
+export const RemoveButtonContainer = styled.div`
   padding-left: 12px;
   cursor: pointer;
 `;

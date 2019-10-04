@@ -23,7 +23,7 @@ const CheckoutItem = ({
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img alt="item" src={imageUrl}></img>
+        <img alt="item" src={imageUrl} />
       </ImageContainer>
 
       <TextContainer>{name}</TextContainer>
