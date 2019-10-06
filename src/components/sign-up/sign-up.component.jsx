@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./sign-up.styles.scss";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 import {
   auth,
   createUserProfileDocument
 } from "../../firebase/firebase.utils.js";
+import { SignUpContainer, SignUpTitle } from "./sign-up.styles";
 
 class SignUp extends Component {
   constructor(props) {
@@ -54,9 +54,9 @@ class SignUp extends Component {
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
-      <div className="sign-up">
-        <h2 className="title">I don't have an account</h2>
-        <p>Sign up with your email and password.</p>
+      <SignUpContainer>
+        <SignUpTitle>I don't have an account</SignUpTitle>
+        <p>Sign up easily now!</p>
 
         <form className="sign-up-form" onSubmit={this.onSubmit}>
           <FormInput
@@ -93,7 +93,7 @@ class SignUp extends Component {
           />
           <CustomButton type="submit">Sign up</CustomButton>
         </form>
-      </div>
+      </SignUpContainer>
     );
   }
 }
