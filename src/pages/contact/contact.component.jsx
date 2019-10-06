@@ -1,7 +1,13 @@
 import React, { Component } from "react";
-import "./contact.styles.scss";
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
+import {
+  ContactPageContainer,
+  AppInfoContainer,
+  TitleContainer,
+  ContactInfoContainer,
+  ContactFormContainer
+} from "./contact.styles";
 
 class ContactPage extends Component {
   constructor(props) {
@@ -23,9 +29,9 @@ class ContactPage extends Component {
 
   render() {
     return (
-      <div className="contact-page">
-        <div className="app-info">
-          <h1 className="title">About the app</h1>
+      <ContactPageContainer>
+        <AppInfoContainer>
+          <TitleContainer>About the app</TitleContainer>
           <p>
             This web application is an E-commerce project by Giang Nguyen built
             with Redux, Hooks, GraphQL, ContextAPI, Stripe and Firebase. The
@@ -40,11 +46,11 @@ class ContactPage extends Component {
             </a>{" "}
             or contact me via this form if you have any questions.
           </p>
-        </div>
+        </AppInfoContainer>
 
-        <div className="contact-info">
-          <h1 className="title">Contact</h1>
-          <form className="contact-form">
+        <ContactInfoContainer>
+          <TitleContainer>Contact</TitleContainer>
+          <ContactFormContainer>
             <FormInput
               required
               type="text"
@@ -79,9 +85,9 @@ class ContactPage extends Component {
             <CustomButton type="submit" value="Submit">
               Submit
             </CustomButton>
-          </form>
-        </div>
-      </div>
+          </ContactFormContainer>
+        </ContactInfoContainer>
+      </ContactPageContainer>
     );
   }
 }
