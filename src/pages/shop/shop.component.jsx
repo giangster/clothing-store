@@ -11,11 +11,12 @@ import {
 
 class ShopPage extends React.Component {
   unsubscribeFromSnapshot = null;
+
   componentDidMount() {
     const { updateCollections } = this.props;
     const collectionRef = firestore.collection("collections");
 
-    collectionRef.onSnapShot(async snapShot => {
+    this.unsubscribeFromSnapshot = collectionRef.onSnapShot(async snapShot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapShot);
       updateCollections(collectionsMap);
     });
