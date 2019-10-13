@@ -6,7 +6,7 @@ const ORIGIN_STATE = {
 
 const shopReducer = (state = ORIGIN_STATE, action) => {
   switch (action.type) {
-    case ShopActionTypes.UPDATE_COLLECTIONS:
+    case ShopActionTypes.FETCH_COLLECTIONS_START:
       return {
         ...state,
         collections: action.payload
