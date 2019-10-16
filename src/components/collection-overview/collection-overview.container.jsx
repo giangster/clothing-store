@@ -11,7 +11,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 //In here, compose is used instead of the regular way to ensure that in the future, if there is more HOC than just WithSpinner, the code would not look like a mess
-export const CollectionOverviewContainer = compose(
+const CollectionOverviewContainer = compose(
   connect(mapStateToProps),
   WithSpinner
 )(CollectionOverview);
@@ -19,3 +19,5 @@ export const CollectionOverviewContainer = compose(
 // export const CollectionOverviewContainer = connect(mapStateToProps)(
 //   WithSpinner(CollectionOverview)
 // );
+
+export default CollectionOverviewContainer;
