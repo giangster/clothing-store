@@ -1,16 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import CollectionOverview from "../../components/collection-overview/collection-overview.component.jsx";
-import CollectionPage from "../collection/collection.component.jsx";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
 import { fetchCollectionsStartAsync } from "../../redux/shop/shop-actions";
 
-import WithSpinner from "../../components/with-spinner/with-spinner.component.jsx";
-import { selectIsCollectionFetching } from "../../redux/shop/shop-selectors.js";
-
-const CollectionsOverviewWithSpinner = WithSpinner(CollectionOverview);
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+import CollectionOverviewContainer from "../../components/collection-overview/collection-overview.container.jsx";
+import CollectionPageContainer from "../collection/collection.container.jsx";
 
 class ShopPage extends React.Component {
   state = {
@@ -25,36 +19,28 @@ class ShopPage extends React.Component {
   }
 
   render() {
-    const { match, isFetching } = this.props;
+    const { match } = this.props;
     return (
       <div className="shop-page">
         <Route
           exact
           path={`${match.path}`}
-          render={props => (
-            <CollectionsOverviewWithSpinner isLoading={isFetching} {...props} />
-          )}
+          component={CollectionOverviewContainer}
         />
         <Route
           path={`${match.path}/:collectionId`}
-          render={props => (
-            <CollectionPageWithSpinner isLoading={isFetching} {...props} />
-          )}
+          component={CollectionPageContainer}
         />
       </div>
     );
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  isFetching: selectIsCollectionFetching
-});
-
 const mapDispatchToProps = dispatch => ({
   fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(ShopPage);
