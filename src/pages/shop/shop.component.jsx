@@ -24,11 +24,12 @@ class ShopPage extends React.Component {
     const { updateCollections } = this.props;
     const collectionRef = firestore.collection("collections");
 
-    fetch(
-      "https://firestore.googleapis.com/v1/projects/clothing-store-082019/databases/(default)/documents/cities/LA"
-        .then(response => response.json())
-        .then(collections => console.log(collections))
-    );
+    //Another way for getting the data by using fetch API
+    // fetch(
+    //   "https://firestore.googleapis.com/v1/projects/clothing-store-082019/databases/(default)/documents/collections"
+    // )
+    //   .then(response => response.json())
+    //   .then(collections => console.log(collections));
 
     collectionRef.get().then(snapShot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapShot);
