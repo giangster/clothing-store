@@ -8,17 +8,33 @@ import {
   firestore,
   convertCollectionsSnapshotToMap
 } from "../../firebase/firebase.utils";
+import WithSpinner from "../../components/with-spinner/with-spinner.component.jsx";
+
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionOverview);
+const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 class ShopPage extends React.Component {
+  state = {
+    loading: true
+  };
+
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
     const { updateCollections } = this.props;
     const collectionRef = firestore.collection("collections");
 
-    this.unsubscribeFromSnapshot = collectionRef.onSnapShot(async snapShot => {
+    //Another way for getting the data by using fetch API
+    // fetch(
+    //   "https://firestore.googleapis.com/v1/projects/clothing-store-082019/databases/(default)/documents/collections"
+    // )
+    //   .then(response => response.json())
+    //   .then(collections => console.log(collections));
+
+    collectionRef.get().then(snapShot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapShot);
       updateCollections(collectionsMap);
+      this.setState({ loading: false });
     });
   }
 
@@ -26,10 +42,24 @@ class ShopPage extends React.Component {
     const { match } = this.props;
     return (
       <div className="shop-page">
-        <Route exact path={`${match.path}`} component={CollectionOverview} />
+        <Route
+          exact
+          path={`${match.path}`}
+          render={props => (
+            <CollectionsOverviewWithSpinner
+              isLoading={this.state.loading}
+              {...props}
+            />
+          )}
+        />
         <Route
           path={`${match.path}/:collectionId`}
-          component={CollectionPage}
+          render={props => (
+            <CollectionPageWithSpinner
+              isLoading={this.state.loading}
+              {...props}
+            />
+          )}
         />
       </div>
     );
