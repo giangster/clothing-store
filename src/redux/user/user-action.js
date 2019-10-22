@@ -23,8 +23,11 @@ export const emailSignInStart = () => {
   return { type: UserActionTypes.EMAIL_SIGN_IN_START };
 };
 
-export const emailSignInSuccess = user => {
-  return { type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS, payload: user };
+export const emailSignInSuccess = emailAndPassword => {
+  return {
+    type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS,
+    payload: emailAndPassword
+  };
 };
 
 export const emailSignInFailure = err => {
