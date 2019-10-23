@@ -7,12 +7,7 @@ import {
 
 import UserActionTypes from "./user-types";
 
-import {
-  googleSignInSuccess,
-  emailSignInSuccess,
-  googleSignInFailure,
-  emailSignInFailure
-} from "./user-actions";
+import { signInSuccess, signInFailure } from "./user-actions";
 
 export function* googleSignIn() {
   try {
@@ -22,11 +17,9 @@ export function* googleSignIn() {
 
     const userSnapshot = yield userRef.get();
 
-    yield put(
-      googleSignInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
-    );
+    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
   } catch (err) {
-    yield put(googleSignInFailure(err.message));
+    yield put(signInFailure(err.message));
   }
 }
 
@@ -38,11 +31,9 @@ export function* emailSignIn({ payload: { email, password } }) {
 
     const userSnapshot = yield userRef.get();
 
-    yield put(
-      emailSignInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
-    );
+    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
   } catch (err) {
-    yield put(emailSignInFailure(err.message));
+    yield put(signInFailure(err.message));
   }
 }
 
