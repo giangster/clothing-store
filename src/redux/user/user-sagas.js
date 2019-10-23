@@ -9,11 +9,9 @@ import UserActionTypes from "./user-types";
 
 import { signInSuccess, signInFailure } from "./user-actions";
 
-export function* googleSignIn() {
+export function* getSnapshotFromUserAuth(userAuth) {
   try {
-    const { user } = yield auth.signInWithPopup(googleProvider);
-
-    const userRef = yield call(createUserProfileDocument, user);
+    const userRef = yield call(createUserProfileDocument, userAuth);
 
     const userSnapshot = yield userRef.get();
 
@@ -23,15 +21,19 @@ export function* googleSignIn() {
   }
 }
 
+export function* googleSignIn() {
+  try {
+    const { user } = yield auth.signInWithPopup(googleProvider);
+    yield getSnapshotFromUserAuth(user);
+  } catch (err) {
+    yield put(signInFailure(err.message));
+  }
+}
+
 export function* emailSignIn({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
-
-    const userRef = yield call(createUserProfileDocument, user);
-
-    const userSnapshot = yield userRef.get();
-
-    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
+    yield getSnapshotFromUserAuth(user);
   } catch (err) {
     yield put(signInFailure(err.message));
   }
