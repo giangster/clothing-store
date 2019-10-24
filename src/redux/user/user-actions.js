@@ -24,3 +24,7 @@ export const emailSignInSuccess = () => {
     type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS
   };
 };
+
+export const checkUserSession = () => {
+  return { type: UserActionTypes.CHECK_USER_SESSION };
+};
