@@ -24,3 +24,21 @@ export const emailSignInSuccess = () => {
     type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS
   };
 };
+
+export const checkUserSession = () => {
+  return { type: UserActionTypes.CHECK_USER_SESSION };
+};
+
+export const signOutStart = () => {
+  return {
+    type: UserActionTypes.SIGN_OUT_START
+  };
+};
+
+export const signOutSuccess = () => {
+  return { type: UserActionTypes.SIGN_OUT_SUCCESS };
+};
+
+export const signOutFailure = err => {
+  return { type: UserActionTypes.SIGN_OUT_FAILURE, payload: err };
+};
