@@ -35,10 +35,16 @@ export const signOutStart = () => {
   };
 };
 
-export const signOutSuccess = () => {
-  return { type: UserActionTypes.SIGN_OUT_SUCCESS };
+export const signUpStart = () => {
+  return {
+    type: UserActionTypes.SIGN_UP_START
+  };
 };
 
-export const signOutFailure = err => {
-  return { type: UserActionTypes.SIGN_OUT_FAILURE, payload: err };
+export const signUpSuccess = () => {
+  return { type: UserActionTypes.SIGN_UP_SUCCESS };
+};
+
+export const signUpFailure = err => {
+  return { type: UserActionTypes.SIGN_UP_FAILURE, payload: err };
 };
