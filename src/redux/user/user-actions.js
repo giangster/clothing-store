@@ -35,9 +35,10 @@ export const signOutStart = () => {
   };
 };
 
-export const signUpStart = () => {
+export const signUpStart = user => {
   return {
-    type: UserActionTypes.SIGN_UP_START
+    type: UserActionTypes.SIGN_UP_START,
+    payload: user
   };
 };
 

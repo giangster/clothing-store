@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
+import { connect } from "react-redux";
+
 import {
   auth,
   createUserProfileDocument
 } from "../../firebase/firebase.utils.js";
 import { SignUpContainer, SignUpTitle } from "./sign-up.styles";
+import { signUpStart } from "../../redux/user/user-actions";
 
 class SignUp extends Component {
   constructor(props) {
@@ -36,9 +39,7 @@ class SignUp extends Component {
     }
 
     try {
-      const user = await auth.createUserWithEmailAndPassword(email, password);
-
-      await createUserProfileDocument(user, { displayName });
+      this.props.signUpStart({ displayName, email, password });
 
       this.setState({
         displayName: "",
@@ -98,4 +99,11 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapDispatchToProps = dispatch => ({
+  signUpStart: user => dispatch(signUpStart(user))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SignUp);
