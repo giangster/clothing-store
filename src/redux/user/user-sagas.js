@@ -103,6 +103,7 @@ export default function* userSagas() {
     call(onGoogleSignInStart),
     call(onEmailSignInStart),
     call(checkUserSession),
-    call(signOutStart)
+    call(signOutStart),
+    call(signUpStart)
   ]);
 }
