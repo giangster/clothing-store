@@ -35,6 +35,14 @@ export const signOutStart = () => {
   };
 };
 
+export const signOutSuccess = () => {
+  return { type: UserActionTypes.SIGN_OUT_SUCCESS };
+};
+
+export const signOutFailure = err => {
+  return { type: UserActionTypes.SIGN_OUT_FAILURE, payload: err };
+};
+
 export const signUpStart = user => {
   return {
     type: UserActionTypes.SIGN_UP_START,
