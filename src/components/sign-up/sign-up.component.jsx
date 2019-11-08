@@ -25,7 +25,7 @@ class SignUp extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
-
+    const { signUpStart } = this.props;
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
@@ -33,18 +33,7 @@ class SignUp extends Component {
       return;
     }
 
-    try {
-      this.props.signUpStart({ displayName, email, password });
-
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    signUpStart({ displayName, email, password });
   };
 
   render() {
