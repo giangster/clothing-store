@@ -50,8 +50,11 @@ export const signUpStart = user => {
   };
 };
 
-export const signUpSuccess = () => {
-  return { type: UserActionTypes.SIGN_UP_SUCCESS };
+export const signUpSuccess = ({ user, additionalData }) => {
+  return {
+    type: UserActionTypes.SIGN_UP_SUCCESS,
+    payload: { user, additionalData }
+  };
 };
 
 export const signUpFailure = err => {
