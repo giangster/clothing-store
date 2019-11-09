@@ -13,7 +13,7 @@ import {
 } from "../../redux/user/user-actions";
 
 const SignIn = ({ emailSignInStart, googleSignInStart }) => {
-  const [userCredentials, setScredentials] = useState({
+  const [userCredentials, setCredentials] = useState({
     email: "",
     password: ""
   });
@@ -22,7 +22,7 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
 
   const onChange = e => {
     e.preventDefault();
-    setScredentials({ ...userCredentials, [e.target.name]: e.target.value });
+    setCredentials({ ...userCredentials, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => {
