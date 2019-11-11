@@ -5,6 +5,7 @@
     "node": "v10.15.1",
     "npm": "6.4.1"
   },
+  "proxy": "http://localhost:5000",
   "scripts": {
     "client": "cd client && npm start",
     "server": "nodemon server.js",
