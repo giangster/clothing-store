@@ -27,3 +27,11 @@ app.listen(port, err => {
   }
   console.log(`Server running on port ${port}`);
 });
+
+app.post("/payments", (req, res) => {
+  const body = {
+    source: req.body.token.id,
+    amount: req.body.amount,
+    curreny: req.currency
+  };
+});
