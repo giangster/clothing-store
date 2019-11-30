@@ -12,7 +12,7 @@ import { checkUserSession } from "./redux/user/user-actions";
 import CheckoutPage from "./pages/checkout/checkout.component";
 import ContactPage from "./pages/contact/contact.component";
 
-const App = ({ checkUserSession }) => {
+const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
@@ -30,11 +30,7 @@ const App = ({ checkUserSession }) => {
           exact
           path="/signin"
           render={() =>
-            this.props.currentUser ? (
-              <Redirect to="/" />
-            ) : (
-              <SignInAndSignUpPage />
-            )
+            currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
           }
         />
       </Switch>
@@ -50,7 +46,4 @@ const mapDispatchToProps = dispatch => ({
   checkUserSession: () => dispatch(checkUserSession())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

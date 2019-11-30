@@ -51,7 +51,7 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
           name="password"
           label="Password"
           value={password}
-          onChange={this.onChange}
+          onChange={onChange}
         />
         <ButtonsContainer>
           <CustomButton type="submit">Sign in</CustomButton>
@@ -74,7 +74,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(emailSignInStart({ email, password }))
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(SignIn);
+export default connect(null, mapDispatchToProps)(SignIn);
