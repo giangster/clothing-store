@@ -41,10 +41,6 @@ export const BackgroundImage = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
-
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 export const CollectionFooter = styled.div`
@@ -60,10 +56,14 @@ export const AddButton = styled(CustomButton)`
   width: 80%;
   opacity: 0.7;
   top: 255px;
+  display: none;
 
-  &:hover {
-    opacity: 0.85;
-    display: flex;
+  @media screen and (max-width: 600px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;
 
 export const NameContainer = styled.span`
@@ -73,4 +73,5 @@ export const NameContainer = styled.span`
 
 export const PriceContainer = styled.span`
   width: 10%;
+  text-align: right;
 `;
