@@ -36,7 +36,8 @@ class ContactPage extends Component {
             This web application is an E-commerce project by Giang Nguyen built
             with Redux, Hooks, GraphQL, ContextAPI, Stripe and Firebase. The
             instructions for the project is from a MOOC course. The project is
-            still ongoing.
+            basically completed. There might still be chances for future further
+            development.
           </p>
 
           <p>
