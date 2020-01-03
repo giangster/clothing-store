@@ -21,6 +21,7 @@ export const CollectionItemContainer = styled.div`
 
   @media screen and (max-width: 600px) {
     width: 40vw;
+    margin: 8px 5px;
 
     &:hover {
       .image {
