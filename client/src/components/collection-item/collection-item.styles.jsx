@@ -10,27 +10,25 @@ export const CollectionItemContainer = styled.div`
   position: relative;
 
   &:hover {
-    image {
+    .image {
       opacity: 0.8;
     }
-  }
-
-  button {
-    opacity: 0.85;
-    display: flex;
+    button {
+      opacity: 0.85;
+      display: flex;
+    }
   }
 
   @media screen and (max-width: 600px) {
     width: 40vw;
 
     &:hover {
-      image {
+      .image {
         opacity: unset;
       }
-    }
-
-    button {
-      opacity: unset;
+      button {
+        opacity: unset;
+      }
     }
   }
 `;
@@ -41,6 +39,7 @@ export const BackgroundImage = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
 export const CollectionFooter = styled.div`
@@ -52,9 +51,9 @@ export const CollectionFooter = styled.div`
 `;
 
 export const AddButton = styled(CustomButton)`
-  position: absolute;
   width: 80%;
   opacity: 0.7;
+  position: absolute;
   top: 255px;
   display: none;
 
